@@ -7,6 +7,8 @@
 <script src="../build/ar.js"></script>
 <script>THREEx.ArToolkitContext.baseURL = '../'</script>
 
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'><div style='position: absolute; top: 10px; width:100%; text-align: center; z-index: 1;'>
 	<a href="https://github.com/jeromeetienne/AR.js/" target="_blank">AR.js</a> - three.js prova
 	<br/>
@@ -151,6 +153,18 @@
 	//onRenderFcts.push(function(){
 		//mesh.rotation.x += 0.1
 	//})
+	
+	const loader = new GLTFLoader();
+
+	loader.load( 'aframe/examples/image-tracking/nft/trex/scene.gltf', function ( gltf ) {
+
+		scene.add( gltf.scene );
+
+	}, undefined, function ( error ) {
+
+		console.error( error );
+
+	} );
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
