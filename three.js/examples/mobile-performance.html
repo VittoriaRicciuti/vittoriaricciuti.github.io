@@ -129,18 +129,18 @@
 	//		add an object in the scene
 	//////////////////////////////////////////////////////////////////////////////////
 
-	//var arWorldRoot = smoothedRoot
+	var arWorldRoot = smoothedRoot
 
 	// add a torus knot
-	//var geometry	= new THREE.BoxGeometry(1,1,1);
-	//var material	= new THREE.MeshNormalMaterial({
-		//transparent : true,
-		//opacity: 0.5,
-		//side: THREE.DoubleSide
-	//});
-	//var mesh	= new THREE.Mesh( geometry, material );
+	var geometry	= new THREE.BoxGeometry(1,1,1);
+	var material	= new THREE.MeshNormalMaterial({
+		transparent : true,
+		opacity: 0.5,
+		side: THREE.DoubleSide
+	});
+	var mesh	= new THREE.Mesh( geometry, material );
 	//mesh.position.y	= geometry.parameters.height/2
-	//arWorldRoot.add( mesh );
+	arWorldRoot.add( mesh );
 
 	//var geometry	= new THREE.TorusKnotGeometry(0.3,0.1,64,16);
 	//var material	= new THREE.MeshNormalMaterial();
@@ -156,10 +156,10 @@
 	
 	const loader = new THREE.FontLoader();
 
-	loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
+	loader.load( 'fonts/helvetiker_regular.typeface.json', function ( response ) {
 
 		const geometry = new THREE.TextGeometry( 'Hello three.js!', {
-			font: font,
+			font: response,
 			size: 80,
 			height: 5,
 			curveSegments: 12,
