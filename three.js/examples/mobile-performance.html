@@ -8,7 +8,7 @@
 <script>THREEx.ArToolkitContext.baseURL = '../'</script>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'><div style='position: absolute; top: 10px; width:100%; text-align: center; z-index: 1;'>
-	<a href="https://github.com/jeromeetienne/AR.js/" target="_blank">AR.js</a> - three.js prova2
+	<a href="https://github.com/jeromeetienne/AR.js/" target="_blank">AR.js</a> - three.js prova3
 	<br/>
 	Contact me any time at <a href='https://twitter.com/jerome_etienne' target='_blank'>@jerome_etienne</a>
 </div><script>
@@ -200,21 +200,7 @@
 		} );
 	} );
 	
-	textGeo = new THREE.TextGeometry( 'hi Vitto', {
-
-		font: response,
-
-		size: 80,
-		height: 5,
-		curveSegments: 12,
-
-		bevelThickness: 10,
-		bevelSize: 8,
-		bevelEnabled: true
-
-	} );
-	
-	textGeo = new THREE.BufferGeometry().fromGeometry( textGeo );
+	textGeo = new THREE.BufferGeometry().fromGeometry( geometry );
 	materials = [
 		new THREE.MeshPhongMaterial( { color: 0xffffff, flatShading: true } ), // front
 		new THREE.MeshPhongMaterial( { color: 0xffffff } ) // side
