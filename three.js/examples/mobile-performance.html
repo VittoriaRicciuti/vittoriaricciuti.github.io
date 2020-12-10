@@ -8,7 +8,7 @@
 <script>THREEx.ArToolkitContext.baseURL = '../'</script>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'><div style='position: absolute; top: 10px; width:100%; text-align: center; z-index: 1;'>
-	<a href="https://github.com/jeromeetienne/AR.js/" target="_blank">AR.js</a> - three.js prova7
+	<a href="https://github.com/jeromeetienne/AR.js/" target="_blank">AR.js</a> - three.js prova8
 	<br/>
 	Contact me any time at <a href='https://twitter.com/jerome_etienne' target='_blank'>@jerome_etienne</a>
 </div><script>
@@ -153,6 +153,7 @@
 	//})
 	
 	//PROVA
+	var arWorldRoot = smoothedRoot
 	var loader = new THREE.FontLoader();
 	loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
 
@@ -176,7 +177,7 @@
 
 	  var mesh = new THREE.Mesh( textGeometry, textMaterial );
 
-	  scene.add( mesh );
+	  arWorldRoot.add( mesh );
 
 	}); 
 	//FINE PROVA 
