@@ -8,7 +8,7 @@
 <script>THREEx.ArToolkitContext.baseURL = '../'</script>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'><div style='position: absolute; top: 10px; width:100%; text-align: center; z-index: 1;'>
-	<a href="https://github.com/jeromeetienne/AR.js/" target="_blank">AR.js</a> - three.js provaAcaso2
+	<a href="https://github.com/jeromeetienne/AR.js/" target="_blank">AR.js</a> - three.js provaAcaso3
 	<br/>
 	Contact me any time at <a href='https://twitter.com/jerome_etienne' target='_blank'>@jerome_etienne</a>
 </div><script>
@@ -129,18 +129,35 @@
 	//		add an object in the scene
 	//////////////////////////////////////////////////////////////////////////////////
 
-	//var arWorldRoot = smoothedRoot
+	var arWorldRoot = smoothedRoot
 
 	// add a torus knot
+	
+	const loader = new THREE.FontLoader();
+
+	loader.load( 'fonts/helvetiker_regular.typeface.json', function ( response ) {
+
+		var geometry = new THREE.TextGeometry( 'Hello three.js!', {
+			font: response,
+			size: 80,
+			height: 5,
+			curveSegments: 12,
+			bevelEnabled: true,
+			bevelThickness: 10,
+			bevelSize: 8,
+			bevelOffset: 0,
+			bevelSegments: 5
+		} );
+	
 	//var geometry	= new THREE.BoxGeometry(1,1,1);
-	//var material	= new THREE.MeshNormalMaterial({
-		//transparent : true,
-		//opacity: 0.5,
-		//side: THREE.DoubleSide
-	//});
-	//var mesh	= new THREE.Mesh( geometry, material );
+	var material	= new THREE.MeshNormalMaterial({
+		transparent : false,
+		opacity: 0.5,
+		side: THREE.DoubleSide
+	});
+	var mesh	= new THREE.Mesh( geometry, material );
 	//mesh.position.y	= geometry.parameters.height/2
-	//arWorldRoot.add( mesh );
+	arWorldRoot.add( mesh );
 
 	//var geometry	= new THREE.TorusKnotGeometry(0.3,0.1,64,16);
 	//var material	= new THREE.MeshNormalMaterial();
@@ -204,30 +221,6 @@
 	//arWorldRoot.add( mesh2 );
 	
 	//markerRoot1.add( mesh2 );
-	
-	//INZIO TRIAL 2
-	markerRoot1 = new THREE.Group();
-	scene.add(markerRoot1);
-	
-	let geometry1 = new THREE.PlaneBufferGeometry(1,1, 4,4);
-	
-	let loader = new THREE.TextureLoader();
-	let texture = loader.load( 'images.jpg', render );
-	
-	material1 = new THREE.ShaderMaterial({
-		uniforms: {
-			time: { value: 1.0 },
-			baseTexture: { value: texture }
-		},
-		vertexShader: document.getElementById( 'vertexShader' ).textContent,
-		fragmentShader: document.getElementById( 'fragmentShader' ).textContent
-	});	
-	
-	mesh1 = new THREE.Mesh( geometry1, material1 );
-	mesh1.rotation.x = -Math.PI/2;
-	
-	markerRoot1.add( mesh1 );
-	
 	
 
 	//////////////////////////////////////////////////////////////////////////////////
