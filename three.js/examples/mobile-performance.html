@@ -154,17 +154,24 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 		//mesh.rotation.x += 0.1
 	//})
 	
-	const loader = new GLTFLoader();
+	const loader = new THREE.FontLoader();
 
-	loader.load( 'aframe/examples/image-tracking/nft/trex/scene.gltf', function ( gltf ) {
+	loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
 
-		scene.add( gltf.scene );
-
-	}, undefined, function ( error ) {
-
-		console.error( error );
-
+		const geometry = new THREE.TextGeometry( 'Hello three.js!', {
+			font: font,
+			size: 80,
+			height: 5,
+			curveSegments: 12,
+			bevelEnabled: true,
+			bevelThickness: 10,
+			bevelSize: 8,
+			bevelOffset: 0,
+			bevelSegments: 5
+		} );
 	} );
+	
+	scene.add(loader);
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
